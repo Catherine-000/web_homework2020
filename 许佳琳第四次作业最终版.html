@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- 使用viewport meta 标签在手机浏览器上控制布局 -->
+<meta mame="apple-moblie-web-app-capable" content="yes">
+<!-- /*通过快捷方式打开是全屏显示*/ -->
+<meta name="apple-moblie-web-app-status-bar-style" content="blank">
+<!-- /*  隐藏状态栏*/ -->
+<meta mame="format-detection" content="telephone=no">
+<!-- /*iphone会将看起来像电话号码的数字添加电话链接，这里关闭掉*/ -->
+<title>服务外包</title>
+<style>
+  /* 去黑边白边 */
+  *{
+		padding:0px;
+		margin:0px;
+   }
+
+    /* 背景 */
+    /* body 想要只给首页弄背景，就把背景设在第一个div,下面这个方法是背景固定不随滚动条而改变的
+    {            
+        background: url(bg.png) no-repeat center center fixed ;           
+        /* -webkit-background-size: cover;            
+        -moz-background-size: cover;            
+        -o-background-size: cover;            
+        background-size: cover;  
+        height:600px;
+        width:auto;       
+    }*/
+
+    /* 头部标题 */
+   .header {
+       padding: 50px;
+       text-align: center;
+    /* background: white; */
+    }
+ 
+    .header h1 {
+        font-size: 50px;
+     }
+ 
+    /* 导航条 */
+    .topnav {
+        overflow: hidden;
+         /* background-color: #333; */
+        position:flex;
+        padding: 30px;
+		/* top:400px; 没用*/
+     }
+ 
+    /* 导航条链接 */
+    .topnav a {
+        float: left;
+        display: block;
+        color:black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+ 
+    /* 链接颜色修改 */
+    .topnav a:hover {
+        /* background-color: #ddd; */
+        color:steelblue;
+    }
+
+    /* 弹性盒子 */
+    .flex-container1 {
+    display: -webkit-flex;
+    display: flex;
+    width: 800px;
+    height: 300px;
+    /* margin-top: 300px; */
+    /* background-color: lightgrey; */
+    /* margin-left: 100px; */
+    text-align: center;
+
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+            margin: auto;
+    }
+   .flex-item1 {
+    /* background-color: cornflowerblue; */
+    width: 200px;
+    height: 300px;
+    margin: 25px;
+    border-color:lightgray;
+    border-style:solid;
+    line-height: 30px;
+    }
+    .flex-item2 {
+    background-color: cornflowerblue;
+    width: 180px;
+    height: 200px;
+    margin: 0px;
+    line-height: 30px;
+    color: white;
+    }
+    .flex-item3 {
+    background-color: rgb(117, 159, 238);
+    width: 180px;
+    height: 200px;
+    margin: 0px;
+    line-height: 30px;
+    color: white;
+    }
+
+.flex-container2
+{
+    display: -webkit-flex;
+    display: flex;
+    width: 1024px;
+    height: 500px;
+    /* margin-top: 300px; */
+    /* background-color: lightgrey; */
+    /* margin-left: 100px; */
+    /* text-align: center; */
+ 
+    -webkit-align-items: center;
+            /* align-items: center; */
+    -webkit-justify-content: center;
+            /* justify-content: center; */
+            margin: auto; 
+}
+.touxiang:hover{
+  opacity:80%;
+  姓名专业年级;
+}
+
+.flex-container
+{
+    display: -webkit-flex;
+    display: flex;
+    width: 1024px;
+    height: 50px;
+    /* margin-top: 300px; */
+    /* background-color: lightgrey; */
+    /* margin-left: 100px; */
+    /* text-align: center; */
+ 
+    -webkit-align-items: center;
+            /* align-items: center; */
+    -webkit-justify-content: center;
+            /* justify-content: center; */
+            margin: auto; 
+}
+
+/* 滑动按钮 */
+    .onoffswitch 
+{
+    position: absolute;
+    left: 150px;
+    top: 50%;
+    margin-top: -15px; 
+    width:150px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;}			
+.onoffswitch-checkbox {display: none;}			
+.onoffswitch-label 
+{
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;}			
+.onoffswitch-inner 
+{
+    display: block;width: 200%;margin-left: -100%;transition: margin 0.3s ease-in 0s;}			
+.onoffswitch-inner:before,
+.onoffswitch-inner:after
+{
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 19px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;}			
+.onoffswitch-inner:before 
+{content: "join us";padding-left: 40px;background-color: #098cd8;}			
+.onoffswitch-inner:after {content: "Welcome";padding-left: 13px;background-color: rgb(135, 143, 223);text-align: left;}			
+.onoffswitch-switch 
+{
+    display: block;
+    width: 28px;
+    height: 28px; 
+    margin:1px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;bottom: 0;right: 20px;
+    border-radius: 20px;
+    transition: all 0.1s ease-in 0s;}			
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {margin-left: 0;}			
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {right: 0px;}
+
+/* 卑微画圆 */
+.circle-radius a{
+  width: 10px;
+  height: 10px; 
+  line-height: 10px;
+  text-align: center;
+  display: inline-block; 
+  background: rgb(10, 94, 189);
+  text-decoration: none;
+  /* 设置边框圆角 */
+  border-radius: 50%;
+}
+.circle-radius a:hover{
+  background: rgb(127, 74, 250);
+}
+
+</style>
+</head>
+
+<body>
+<div style="background: url(bg.png)  no-repeat center center scroll;height:520px;">
+    <!-- 首页标题与logo -->
+    <div class="header" style="color: royalblue;font-size: 30px;float:left;padding: 45px;">
+      <img alt="logo" src="logo.png" style="float:left;width:50px;height:50px;text-align: left;">
+         <p style="margin-left :100px;"><b>福州大学软件与服务外包实验室</b></p>
+      </img>
+    </div>
+
+    <!-- 导航条 -->
+    <div class="topnav" >
+            <a href="#" style="float:right;border:cornflowerblue;content:blue;"><b>登录</b></a>
+            <a href="#" style="float:right"><b>加入我们</b></a>
+            <a href="#" style="float:right"><b>关于我们</b></a>
+            <a href="#" style="float:right"><b>优秀作品</b></a>
+            <a href="#" style="float:right"><b>赛事相关</b></a>
+            <a href="#" style="float:right"><b>首页</b></a>
+            <!-- <a href="#">登录</a> -->
+    </div>
+
+    <!-- 首页其他东西 -->
+    <div> 
+        <p style="padding: 50px;font-size: 30px;margin-left: 200px;color:rgb(100, 98, 98)">
+            成员介绍
+        </p>
+        <p style="font-size: 30px;margin-top:10px;;margin-left: 248px;color:rgb(100, 98, 98)">
+            Member Introduction
+        </p>
+        <div class="onoffswitch" style="margin-left:100px;margin-top: 100px; ">					
+                <input type="checkbox" name="onoffswitch" checked class="onoffswitch-checkbox" id="myonoffswitch" >					
+                <label class="onoffswitch-label" for="myonoffswitch">					
+                <span class="onoffswitch-inner"></span>					 
+                <span class="onoffswitch-switch"></span>					
+                </label>			
+        </div>	
+    </div>		
+ </div>              
+
+
+
+<!-- 第二页，老师介绍 -->
+<div class="flex-container1" style="margin-top: 180px; ">
+    <div style="margin-top: -450px;margin-left:-175px;color:rgb(51, 102, 161);">
+    <p>TEACHERS</p>
+    <div class="circle-radius" style="margin-top: 10px;">
+        <!-- <p style="float:left;margin-left:10px;">—————</p> -->
+            <a href="#" style="height:1px;width: 60px;"></a>
+            <a href="#"></a>
+            <a href="#" style="height=15px;width:15px;"></a>
+            <a href="#"></a>
+            <a href="#" style="height:1px;width: 60px;"></a>
+        <!-- <p style="float:left;margin-left:300px;">—————</p> -->
+    </div>
+    </div>
+    <div class="flex-item1">
+        <br>
+        <p style="text-align: left;margin-left: 20px;font-size: 50px;color:rgb(11, 118, 206)"><b>"</b></p>
+            <p>简介简介简介简介简介</p>
+            <p>简介简介简介简介简介</p>
+            <p>简介简介简介简介简介</p>
+            <br>
+            <!-- 图片不能直接在img里设置text-align，而要通过父元素设置text-align来控制对齐方式 -->
+            <div style="text-align : left;">
+                <img src="椭圆2.png" style="height: 40px;"/>
+            </div>
+            
+            <p>姓名</p>
+            <p>研究方向</p>
+    </div>
+    <div class="flex-item1">
+            <br>
+            <p style="text-align: left;margin-left: 20px;font-size: 50px;color:rgb(11, 118, 206)"><b>"</b></p>
+            <p>简介简介简介简介简介</p>
+            <p>简介简介简介简介简介</p>
+            <p>简介简介简介简介简介</p>
+            <br>
+            <!-- 图片不能直接在img里设置text-align，而要通过父元素设置text-align来控制对齐方式 -->
+            <div style="text-align : left;">
+                <img src="椭圆2.png" style="height: 40px;"/>
+            </div>
+            <p>姓名</p>
+            <p>研究方向</p>
+    </div>
+    <div class="flex-item1">
+            <br>
+            <p style="text-align: left;margin-left: 20px;font-size: 50px;color:rgb(11, 118, 206)"><b>"</b></p>
+            <p>简介简介简介简介简介</p>
+            <p>简介简介简介简介简介</p>
+            <p>简介简介简介简介简介</p>
+            <br>
+            <!-- 图片不能直接在img里设置text-align，而要通过父元素设置text-align来控制对齐方式 -->
+            <div style="text-align : left;">
+                <img src="椭圆2.png" style="height: 40px;"/>
+            </div>
+            
+            <p>姓名</p>
+            <p>研究方向</p>
+    </div>  
+</div>
+
+
+<!-- 各组LOGO -->
+<div class="flex-container1">
+    <div class="flex-item2" >
+        <img src="web_icon.png" style="height:60px;margin-top: 30px;">
+        <p >WEB</p>
+        <p><b>—————</b></p>
+        <img src="down.png">
+    </div>
+    <div class="flex-item3">
+            <img src="design_icon.png" style="height:60px;;margin-top: 30px;">
+            <p >UI</p>
+            <p><b>—————</b></p>
+            <img src="down.png">
+    </div>
+    <div class="flex-item2">
+            <img src="android_icon.png" style="height:60px;;margin-top: 30px;">
+            <p >ANDROID</p>
+            <p><b>—————</b></p>
+            <img src="down.png">
+    </div>
+    <div class="flex-item3">
+            <img src="ios_icon.png" style="height:60px;;margin-top: 30px;">
+            <p >IOS</p>
+            <p><b>—————</b></p>
+            <img src="down.png">
+    </div>
+</div>
+
+
+<!-- 开始四个组 -->
+<div class="flex-container" style="margin-top: 20px;float:right;margin-right: 0px; ">
+        <div style="color:rgb(51, 102, 161);">
+        <div style="">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    &nbsp;&nbsp;&nbsp;
+                    WEB</p>
+        </div>
+            <div class="circle-radius" style="margin-top: 10px;">  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" style="height:1px;width: 60px;"></a>
+                    <a href="#"></a>
+                    <a href="#" style="height=15px;width:15px;"></a>
+                    <a href="#"></a>
+                    <a href="#" style="height:1px;width: 60px;"></a>
+            </div>
+            </div>
+</div>
+
+<div class="flex-container2" style="margin-top: 120px; ">
+    <div style="text-align : left;margin-left:-720px;">
+        <img src="web.png" style="height:300px;width:300px;float:left;">
+    </div>
+    <!-- <div class="circle-radius a"> -->
+    <div class="touxiang" style="position: relative;">
+        <div style="position:absolate;">
+            <img src="1.png" style="float:right;border-radius: 50%;height:60px;">
+        </div>
+        <div style="float:right;margin-right: -350px;margin-top: 150px;">
+             <img src="2.png" style="border-radius: 50%;height:70px;">
+        </div>
+       <div style="float:right;margin-right: -110px;margin-top: 300px;">
+           <img src="3.png" style="border-radius: 50%;height:80px;">
+       </div>
+        <div style="float:right;margin-right: -210px;margin-top: 100px;">
+            <img src="4.png" style="border-radius: 50%;height:50px;">
+        </div>
+        <div style="float:right;margin-right: -410px;margin-top: 350px;">
+            <img src="5.png" style="border-radius: 50%;height:65px;">
+        </div>
+        <div style="float:right;margin-right: -610px;margin-top: 150px;">
+            <img src="6.png" style="border-radius: 50%;height:100px;">
+        </div>
+        <div style="float:right;margin-right: -450px;margin-top: 50px;">
+            <img src="7.png" style="border-radius: 50%;height:50px;">
+        </div>
+    </div>    
+    <!-- </div> -->
+
+    
+</div>
+
+
+<div class="flex-container" style="margin-top: 20px;float:left;margin-left: -350px; ">
+    <div style="color:rgb(51, 102, 161);">
+    <div style="margin-left: :-300px;">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESIGN</p>
+    </div>
+        <div class="circle-radius" style="margin-top: 10px;">    
+                <a href="#" style="height:1px;width: 60px;"></a>
+                <a href="#"></a>
+                <a href="#" style="height=15px;width:15px;"></a>
+                <a href="#"></a>
+                <a href="#" style="height:1px;width: 60px;"></a>
+        </div>
+        </div>
+</div>
+<div class="flex-container2" style="margin-top: 120px; ">
+        <div style="text-align : left;margin-right:-650px;">
+            <img src="design.png" style="height:300px;width:500px;float:right;">
+        </div>
+        <!-- <div class="circle-radius a"> -->
+        <div class="touxiang" style="position: relative;">
+            <div style="position:absolate;">
+                <img src="1.png" style="float:left;border-radius: 50%;height:60px;">
+            </div>
+            <div style="float:left;margin-left: -350px;margin-top: 150px;">
+                 <img src="2.png" style="border-radius: 50%;height:70px;">
+            </div>
+           <div style="float:left;margin-left: -110px;margin-top: 250px;">
+               <img src="3.png" style="border-radius: 50%;height:80px;">
+           </div>
+            <div style="float:left;margin-right: -210px;margin-top: 100px;">
+                <img src="4.png" style="border-radius: 50%;height:50px;">
+            </div>
+            <div style="float:left;margin-left: -210px;margin-top: 50px;">
+                <img src="5.png" style="border-radius: 50%;height:65px;">
+            </div>
+            <div style="float:left;margin-left: -410px;margin-top: -30px;">
+                <img src="6.png" style="border-radius: 50%;height:100px;">
+            </div>
+            <div style="float:left;margin-right: -950px;margin-top: -150px;">
+                <img src="7.png" style="border-radius: 50%;height:50px;">
+            </div>
+        </div>  
+</div>  
+
+<div class="flex-container" style="margin-top: 20px;float:right;margin-right: 0px; ">
+    <div style="color:rgb(51, 102, 161);">
+    <div style="">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                ANDROID</p>
+    </div>
+        <div class="circle-radius" style="margin-top: 10px;">  
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#" style="height:1px;width: 60px;"></a>
+                <a href="#"></a>
+                <a href="#" style="height=15px;width:15px;"></a>
+                <a href="#"></a>
+                <a href="#" style="height:1px;width: 60px;"></a>
+        </div>
+        </div>
+</div>
+<div class="flex-container2" style="margin-top: 120px; ">
+        <div style="text-align : left;margin-left:-720px;">
+            <img src="android.png" style="height:220px;width:300px;float:left;">
+        </div>
+        <!-- <div class="circle-radius a"> -->
+        <div class="touxiang" style="position: relative;">
+            <div style="position:absolate;">
+                <img src="1.png" style="float:right;border-radius: 50%;height:60px;">
+            </div>
+            <div style="float:right;margin-right: -350px;margin-top: 150px;">
+                 <img src="2.png" style="border-radius: 50%;height:70px;">
+            </div>
+           <div style="float:right;margin-right: -110px;margin-top: 300px;">
+               <img src="3.png" style="border-radius: 50%;height:80px;">
+           </div>
+            <div style="float:right;margin-right: -210px;margin-top: 100px;">
+                <img src="4.png" style="border-radius: 50%;height:50px;">
+            </div>
+            <div style="float:right;margin-right: -410px;margin-top: 350px;">
+                <img src="5.png" style="border-radius: 50%;height:65px;">
+            </div>
+            <div style="float:right;margin-right: -610px;margin-top: 150px;">
+                <img src="6.png" style="border-radius: 50%;height:100px;">
+            </div>
+            <div style="float:right;margin-right: -450px;margin-top: 50px;">
+                <img src="7.png" style="border-radius: 50%;height:50px;">
+            </div>
+        </div> 
+</div>  
+
+<div class="flex-container" style="margin-top: 20px;float:left;margin-left: -350px; ">
+        <div style="color:rgb(51, 102, 161);">
+        <div style="margin-left: :-300px;">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IOS</p>
+        </div>
+        <div class="circle-radius" style="margin-top: 10px;">    
+                <a href="#" style="height:1px;width: 60px;"></a>
+                <a href="#"></a>
+                <a href="#" style="height=15px;width:15px;"></a>
+                <a href="#"></a>
+                <a href="#" style="height:1px;width: 60px;"></a>
+        </div>
+        </div>
+</div>
+<div class="flex-container2" style="margin-top: 120px; ">
+        <div style="text-align : left;margin-right:-650px;">
+            <img src="ios.png" style="height:300px;width:400px;float:right;">
+        </div>
+        <!-- <div class="circle-radius a"> -->
+        <div class="touxiang" style="position: relative;">
+            <div style="position:absolate;">
+                <img src="1.png" style="float:left;border-radius: 50%;height:60px;">
+            </div>
+            <div style="float:left;margin-left: -350px;margin-top: 150px;">
+                 <img src="2.png" style="border-radius: 50%;height:70px;">
+            </div>
+           <div style="float:left;margin-left: -110px;margin-top: 250px;">
+               <img src="3.png" style="border-radius: 50%;height:80px;">
+           </div>
+            <div style="float:left;margin-right: -210px;margin-top: 100px;">
+                <img src="4.png" style="border-radius: 50%;height:50px;">
+            </div>
+            <div style="float:left;margin-left: -210px;margin-top: 50px;">
+                <img src="5.png" style="border-radius: 50%;height:65px;">
+            </div>
+            <div style="float:left;margin-left: -410px;margin-top: -30px;">
+                <img src="6.png" style="border-radius: 50%;height:100px;">
+            </div>
+            <div style="float:left;margin-right: -950px;margin-top: -150px;">
+                <img src="7.png" style="border-radius: 50%;height:50px;">
+            </div>
+        </div>  
+</div>  
+
+</body>
+</html>
